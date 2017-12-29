@@ -122,9 +122,9 @@ Third Step: Running the Neural Network in a Phonegap Cordova application.
 
 - This step is so simple as creating a new Phonegap project, and copying the former folders into the 'www' folder. Then we can just use a controller to redirect to a page containing our 'frontend/dist/index.html'.
 
-<img src="screen1.jpeg" style="width:300px;"></img><br/>
-<img src="screen2.jpeg" style="width:300px;"></img><br/>
-<img src="screen3.jpeg" style="width:300px;"></img><br/> 
+<img src="screen1.jpeg"  width="300"></img><br/>
+<img src="screen2.jpeg"  width="300"></img><br/>
+<img src="screen3.jpeg"  width="300"></img><br/> 
 
 
 
