@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	<script type="text/javascript" src="jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+    <style>
+    .spinner {
+	  margin: 20px auto;
+	  width: 50px;
+	  height: 40px;
+	  text-align: center;
+	  font-size: 10px;
+	}
+	
+	.spinner > div {
+	  background-color: #333;
+	  height: 100%;
+	  width: 6px;
+	  display: inline-block;
+	  
+	  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+	  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+	}
+	
+	.spinner .rect2 {
+	  -webkit-animation-delay: -1.1s;
+	  animation-delay: -1.1s;
+	}
+	
+	.spinner .rect3 {
+	  -webkit-animation-delay: -1.0s;
+	  animation-delay: -1.0s;
+	}
+	
+	.spinner .rect4 {
+	  -webkit-animation-delay: -0.9s;
+	  animation-delay: -0.9s;
+	}
+	
+	.spinner .rect5 {
+	  -webkit-animation-delay: -0.8s;
+	  animation-delay: -0.8s;
+	}
+	
+	@-webkit-keyframes sk-stretchdelay {
+	  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+	  20% { -webkit-transform: scaleY(1.0) }
+	}
+	
+	@keyframes sk-stretchdelay {
+	  0%, 40%, 100% { 
+	    transform: scaleY(0.4);
+	    -webkit-transform: scaleY(0.4);
+	  }  20% { 
+	    transform: scaleY(1.0);
+	    -webkit-transform: scaleY(1.0);
+	  }
+	}
+	.inputfile {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+	#chooseFile {
+	  outline: 0;
+	  border: 0;
+	  background: #2fb6b6;
+	  background-image: -webkit-linear-gradient(top, #2fb6b6, #2980b9);
+	  background-image: -moz-linear-gradient(top, #2fb6b6, #2980b9);
+	  background-image: -ms-linear-gradient(top, #2fb6b6, #2980b9);
+	  background-image: -o-linear-gradient(top, #2fb6b6, #2980b9);
+	  background-image: linear-gradient(to bottom, #2fb6b6, #2980b9);
+	  -webkit-border-radius: 28;
+	  -moz-border-radius: 28;
+	  border-radius: 28px;
+	  font-family: Arial;
+	  color: #ffffff;
+	  font-size: 20px;
+	  padding: 10px 20px 10px 20px;
+	  text-decoration: none;
+	}
+	
+	#chooseFile:hover, #chooseFile:focus {
+	  background: #2fb6b6;
+	  background-image: -webkit-linear-gradient(top, #3cb0fd, #2fb6b6);
+	  background-image: -moz-linear-gradient(top, #3cb0fd, #2fb6b6);
+	  background-image: -ms-linear-gradient(top, #3cb0fd, #2fb6b6);
+	  background-image: -o-linear-gradient(top, #3cb0fd, #2fb6b6);
+	  background-image: linear-gradient(to bottom, #3cb0fd, #2fb6b6);
+	  text-decoration: none;
+	  outline: 0;
+	  border: 0;
+	}
+
+	.bargraph {
+    	list-style: none;
+    	width:100%;
+    }
+    
+	ul.bargraph li {
+	    height: 35px;
+	    color: white;
+	    text-align: left;
+	    font-style: italic;
+	    font-weight:bolder;
+	    font-size: 14px;
+	    line-height: 35px;
+	    padding: 0px 10px;
+	    margin-bottom: 5px;
+    }
+    
+	ul.bargraph li.greenbright {
+		background: #36B669;
+		text-transform:capitalize;
+		line-height: 38px;
+		padding-top: 10px;
+	}
+	 
+	ul.bargraph li.greenblue {
+		background: #42BDA5;
+		text-transform:capitalize;
+		line-height: 38px;
+		padding-top: 10px;
+	}
+	 
+	ul.bargraph li.blue {
+		background: #00AEEF;
+		text-transform:capitalize;
+		line-height: 38px;
+		padding-top: 10px;
+	}
+
+	.i2Style{
+		font:bold 24px Tahoma, Geneva, sans-serif;
+		font-style:normal;
+		color:#ffffff;
+		background:#15c8db;
+		border:0px solid #ffffff;
+		text-shadow:0px -1px 1px #222222;
+		box-shadow:2px 2px 5px #000000;
+		-moz-box-shadow:2px 2px 5px #000000;
+		-webkit-box-shadow:2px 2px 5px #000000;
+		border-radius:10px 10px 10px 10px;
+		-moz-border-radius:10px 10px 10px 10px;
+		-webkit-border-radius:10px 10px 10px 10px;
+		width:100%;
+		padding:20px 43px;
+		margin:0 auto;
+		text-align:center;
+		margin-top: 30px;
+	}
+
+    </style>
+    <script>
+    $( document ).ready(function() {
+    	$('.spinner').hide();
+	    function displayAsImage3(file) {
+	        if (typeof FileReader !== "undefined") {
+	        	var container = document.getElementById("preview"),
+		            img = document.createElement("img"),
+		            reader;
+		        container.appendChild(img);
+		        reader = new FileReader();
+		        reader.onload = (function (theImg) {
+		            return function (evt) {
+		                theImg.src = evt.target.result;	
+		                console.log("Start predicting...");
+		                $('#spinner_text').text("Predicting...");
+		                $('#holder').one('load', function() {		                	
+		    				predict();
+		    				$('.spinner').hide();
+		    			}).attr('src', evt.target.result);
+		            };
+		        }(img));
+		        reader.readAsDataURL(file);
+	        }
+	    }
+	    	    
+	    $("input[type=file]").change(function(){
+	    	console.log("Loading...");
+	    	$('#spinner_text').text("Loading...");
+	    	$('.spinner').show();
+	        var file = $("input[type=file]")[0].files[0];
+	        $("#holder").empty();
+			displayAsImage3(file);
+	    });	 
+	    
+	    $("#chooseFile").click(function(e){
+	    	console.log("Preview...");
+	    	$("#result").html(''); 
+	    	$('#spinner_text').text("Taking image...");
+	    	$('.spinner').show();
+			e.preventDefault();
+			$(".inputfile").trigger("click");
+		});
+    });
+    </script>
+  </head>
+  <body>
+  	<div style="width:100%;text-align:center;">
+		<canvas id="input-canvas" style="background-size: contain;display:none;"></canvas>
+	    <img id="holder" width="229" height="229" style="margin-top:15px;background-size: 100%;" src="select-none.png" />
+		<br>
+		<div style="margin-top:15px;">		
+			<input type="file" name="file" class="inputfile" accept="image/*" capture="camera">				
+			<button id="chooseFile">Choose an image</button>		
+		</div>
+				
+		<div class="spinner">
+		  <h2 id="spinner_text">Loading...</h2>
+		  <div class="rect1"></div>
+		  <div class="rect2"></div>
+		  <div class="rect3"></div>
+		  <div class="rect4"></div>
+		  <div class="rect5"></div>
+		</div>
+		
+		<div id="result" style="margin-top:10px;width:75%;"></div>
+		
+		<div id="preview" style="width:229px;height:229px;display:none;"></div>
+		
+	</div>
+  </body>
+</html>

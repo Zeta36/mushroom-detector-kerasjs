@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	<script type="text/javascript" src="jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  </head>
+  <body>
+	<canvas id="input-canvas" style="background-size: contain;"></canvas>
+    <img id="holder" width="229" height="229" style="background-size: contain;" src="higrophorus-marzuolus-demo.jpg" />
+	<br>
+	<div style="margin-top:40px;">
+		<input type="text" id="url" style="width:35%;" value="higrophorus-marzuolus-demo.jpg" />
+		<button onclick="if($('#url').val() !== '') $('#holder').one('load', function() {
+			predict();
+		}).attr('src', $('#url').val());">Predict</button>
+	</div>
+	<div id="result" style="margin-top:40px;"></div>
+  </body>
+</html>
