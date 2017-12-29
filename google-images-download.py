@@ -1,21 +1,9 @@
-
-# coding: utf-8
-
-# In[ ]:
-
-#Searching and Downloading Google Images/Image Links
-
-#Import Libraries
-
 #coding: UTF-8
 
-import time       #Importing the time library to check the time of code execution
-import sys    #Importing the System Library
+import time
+import sys
 import os
 import urllib2
-
-
-########### Edit From Here ###########
 
 keywords = ['']
 
@@ -226,11 +214,6 @@ while i<len(search_keyword):
 print("\n")
 print("Everything downloaded!")
 print("\n"+str(errorCount)+" ----> total Errors")
-
-#----End of the main program ----#
-
-
-# In[ ]:
 
 
 
