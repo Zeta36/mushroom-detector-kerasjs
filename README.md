@@ -6,7 +6,7 @@ I explain how to export weights from a Keras model and import those weights in K
 Introduction
 -----------
 
-We are going to create a mushroom detector application for our mobiles. For this task we need to use a machine learning aproximation, and as a good aproximation we'll use the [KerasJS](https://github.com/transcranial/keras-js) framework.
+We are going to create a mushroom detector application for our mobiles. For this task we need to use a machine learning approximation, and as a good approximation we'll use the [KerasJS](https://github.com/transcranial/keras-js) framework.
 
 First Step: Build an image recognition system for several mushroom families.
 -----------
