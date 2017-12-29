@@ -20,7 +20,8 @@ First Step: Build an image recognition system for several mushroom families.
 
 We can use this Python script in order to download images from Google base in a set if query strings:
 
-```google-images-download.py
+```
+google-images-download.py
 ``` 
 
 This script will download 200 images for each of the specified mushroom families:
@@ -40,7 +41,8 @@ In 'val_dir' folder we will have a copy of all downloaded mushroom family folder
 
 Now we can start the fine tuning process using the Python Keras script:
 
-```fine-tune.py.py
+```
+fine-tune.py.py
 ``` 
 
 This script will train the mushroom detection model and finally will create as output some weights files we'll use in the next step:
@@ -120,9 +122,9 @@ Third Step: Running the Neural Network in a Phonegap Cordova application.
 
 - This step is so simple as creating a new Phonegap project, and copying the former folders into the 'www' folder. Then we can just use a controller to redirect to a page containing our 'frontend/dist/index.html'.
 
-<img src="screen1.jpeg"></img><br/>
-<img src="screen2.jpeg"></img><br/>
-<img src="screen3.jpeg"></img><br/> 
+<img src="screen1.jpeg" style="width:300px;"></img><br/>
+<img src="screen2.jpeg" style="width:300px;"></img><br/>
+<img src="screen3.jpeg" style="width:300px;"></img><br/> 
 
 
 
