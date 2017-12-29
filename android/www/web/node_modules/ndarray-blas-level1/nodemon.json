@@ -1,0 +1,6 @@
+{
+  "events": {
+    "crash": "osascript -e 'display notification \"test failed\" with title \"tape\"'",
+    "exit": "osascript -e 'display notification \"test succeeded\" with title \"tape\"'"
+  }
+}

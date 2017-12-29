@@ -1,0 +1,15 @@
+{
+  "name": "starshot_example",
+  "version": "1.0.0",
+  "description": "StarShot Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samu",
+  "license": "ISC",
+  "dependencies": {
+    "keras-js": "^0.3.0",
+    "url-loader": "^0.6.2"
+  }
+}

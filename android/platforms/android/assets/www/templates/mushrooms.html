@@ -1,0 +1,37 @@
+
+<ion-view view-title="Contacto" class="content-background"> 
+
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="left">
+      <a ng-click='myGoBack()' href="#">
+          <div>
+          	<img style='padding-left: 10px;height: 35px !important;font-size: 35px !important;border-color: transparent;background: none;box-shadow: none;vertical-align:middle;' src='img/iconos/mushroom-icon.png'>
+          </div>
+      </a>
+    </ion-nav-buttons>
+    
+    <ion-nav-buttons side="right">
+        <button class="button ion-navicon" style="height: 40px !important;font-size: 40px !important;border-color: transparent;background: none;box-shadow: none;" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  
+  <ion-content>
+
+	<div class="bar bar-loading {{claseLoading}}" ng-if="data.isLoading">
+	{{mensajeLoading}}</div>
+	
+	<div style="width: 100%;text-align: center;margin-bottom:10px;">
+		<img style='margin-top: 5%;margin-bottom: 5%;margin-left:30%;width:40%;margin-right:30%;vertical-align:middle;' src='img/slidebox/logo2.png'>		
+		<hr style="width:90%;margin:1em 0px;margin-left:5%;margin-right:5%;margin-top:15px;">
+		<span style="color:#5abfce;font-size:19px;">T {{telefono}}</span><br />
+		<span style="color:#5abfce;font-size:19px;">E {{mail}}</span>
+		<hr style="width:90%;margin:1em 0px;margin-left:5%;margin-right:5%;margin-top:15px;">		
+	</div>		
+    <div id="map" data-tap-disabled="true" style="height:50%;"></div>
+
+  </ion-content> 
+</ion-view>

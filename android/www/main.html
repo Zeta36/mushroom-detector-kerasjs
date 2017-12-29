@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/estilos_propios.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <script src="js/services.js"></script>    
+
+  </head>
+  <body ng-app="starter" ng-controller="InicioCtrl" class="platform-ios platform-cordova platform-webview">
+
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar>
+        <ion-nav-back-button>
+     </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-content>
+    	<ion-nav-view></ion-nav-view>
+    </ion-content>
+	
+	<ion-footer-bar align-title="left" class="bar-assertive" style="background: #5abfce;">
+	  <div class="buttons">
+	    <a href='tel:{{tel}}' ng-if='is_rrss("tel");'><img style='margin-top:-8px;padding:5px;width:43px;height:41px;max-height:41px;vertical-align:top;' src='img/iconos/telefono-footer.png'></a>
+	    <a ng-click="rrss_footer('whatsapp');" href='#'><img style='margin-top:-8px;padding:5px;width:43px;height:41px;max-height:41px;vertical-align:top;' src='img/iconos/whatsapp.png'></a>
+	    <a ng-click="rrss_footer('mapa');" href='#'><img style='margin-top:-8px;padding:5px;width:43px;height:41px;max-height:41px;vertical-align:top;' src='img/iconos/navegation.png'></a>
+	  </div>	  
+	</ion-footer-bar>
+	
+    <script src="js/jquery-1.11.min.js"></script>
+
+  </body>
+</html>

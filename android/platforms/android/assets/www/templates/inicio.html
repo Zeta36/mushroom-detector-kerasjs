@@ -1,0 +1,31 @@
+
+
+<ion-view view-title="" class="content-background"> 
+	<ion-content
+		scroll="false">
+		
+		<div class="bar bar-loading {{claseLoading}}" ng-if="data.isLoading">
+			{{mensajeLoading}}
+		</div>
+		<div style="width: 100%;text-align: center;">
+			<img style='margin-top: 20%;margin-bottom: 18%;margin-left:10%;width:80%;margin-right:20%;vertical-align:middle;' src='img/slidebox/logo2.png'>
+			
+			<div style="margin-left:5%;width:90%;margin-right:5%;text-align: center;">
+				<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;border-spacing: 0;width:100%;">
+				<tr>
+			      <td style="width:33%;padding: 0px;">
+			        <a style="height:100%;display:block;" ng-click="ver_seccion('principal.redes')">
+			          <img style="width:100%;height:auto;display:block;" src='img/slidebox/contacto.jpg'>
+			        </a>
+			      </td>
+			      <td style="width:33%;padding: 0px;">
+			        <a style="height:100%;display:block;" ng-click="ver_seccion('principal.utilidades')">
+			          <img style="width:100%;height:auto;display:block;" src='img/slidebox/utilidades.jpg'>
+			        </a>
+			      </td>
+				</tr>
+				</table>
+			</div>
+		</div>
+	</ion-content> 
+</ion-view>

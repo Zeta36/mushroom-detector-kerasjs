@@ -1,0 +1,42 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-balanced">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+        <button class="button ion-navicon" style="height: 40px !important;font-size: 40px !important;border-color: transparent;background: none;box-shadow: none;" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent">
+
+    </ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-balanced">
+      <h1 class="title"><img style='padding-right: 5px;height: 30px !important;font-size: 30px !important;border-color: transparent;background: none;box-shadow: none;vertical-align:top;' src='img/iconos/mushroom-icon.png'>{{tituloApp}}</h1>
+    </ion-header-bar>
+    <ion-content style="background-color:#4fa4b1 !important;">
+      <ul class="list">
+      <li>
+        <a href="#/principal/utilidades" class="item balanced" menu-close>
+          <div>
+          	<span style="font-size: 20px;">Utilidades</span>
+          </div>
+        </a>
+       </li>
+       <li>
+        <a href="#/principal/redes" class="item balanced" menu-close>          
+          <div>
+          	<span style="font-size: 20px;">Contactar</span>
+          </div>
+        </a>
+        </li>
+      </ul>
+    </ion-content>
+  </ion-side-menu>
